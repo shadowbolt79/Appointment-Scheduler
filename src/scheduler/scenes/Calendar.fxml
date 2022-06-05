@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controllers.CalendarController">
+  <children>
+      <fx:include fx:id="menu_bar" source="Menu.fxml" />
+    <SplitPane dividerPositions="0.2, 0.8" focusTraversable="true" VBox.vgrow="ALWAYS">
+      <items>
+            <fx:include fx:id="side_pane" source="SideMenu.fxml" SplitPane.resizableWithParent="false" />
+            <TabPane fx:id="tp_view" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="tpt_week_view" text="week_view">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0">
+                           <children>
+                              <TableView id="calendar" fx:id="tv_week_view" layoutX="72.0" layoutY="29.0" stylesheets="@css/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+                                 <columns>
+                                    <TableColumn fx:id="tc_w_sunday" prefWidth="-1.0" resizable="false" sortable="false" text="sunday" />
+                                    <TableColumn fx:id="tc_w_monday" prefWidth="-1.0" resizable="false" sortable="false" text="monday" />
+                                    <TableColumn fx:id="tc_w_tuesday" prefWidth="-1.0" resizable="false" sortable="false" text="tuesday" />
+                                    <TableColumn fx:id="tc_w_wednesday" prefWidth="-1.0" resizable="false" sortable="false" text="wednesday" />
+                                    <TableColumn fx:id="tc_w_thursday" prefWidth="-1.0" resizable="false" sortable="false" text="thursday" />
+                                    <TableColumn fx:id="tc_w_friday" prefWidth="-1.0" resizable="false" sortable="false" text="friday" />
+                                    <TableColumn fx:id="tc_w_saturday" prefWidth="-1.0" resizable="false" sortable="false" text="saturday" />
+                                 </columns>
+                              </TableView>
+                              <Label fx:id="l_sunday_date" alignment="CENTER" layoutY="8.0" prefWidth="200.0" text="sunday_date" textAlignment="CENTER" />
+                              <Button fx:id="b_prev_week" layoutY="4.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="44.0" text="&lt;-" />
+                              <Button fx:id="b_prev_month" layoutY="4.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="44.0" text="&lt;&lt;=" />
+                              <Button fx:id="b_next_week" layoutY="4.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="44.0" text="-&gt;" />
+                              <Button fx:id="b_next_month" layoutY="4.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="44.0" text="=&gt;&gt;" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab fx:id="tpt_calendar_view" text="calendar_view">
+                  <content>
+                    <AnchorPane id="calendar" minHeight="0.0" minWidth="0.0" stylesheets="@css/Style.css">
+                           <children>
+                              <TableView fx:id="tv_calendar_view" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+                                 <columns>
+                                    <TableColumn fx:id="tc_c_sunday" prefWidth="-1.0" resizable="false" sortable="false" text="sunday" />
+                                    <TableColumn fx:id="tc_c_monday" prefWidth="-1.0" resizable="false" sortable="false" text="monday" />
+                                    <TableColumn fx:id="tc_c_tuesday" prefWidth="-1.0" resizable="false" sortable="false" text="tuesday" />
+                                    <TableColumn fx:id="tc_c_wednesday" prefWidth="-1.0" resizable="false" sortable="false" text="wednesday" />
+                                    <TableColumn fx:id="tc_c_thursday" prefWidth="-1.0" resizable="false" sortable="false" text="thursday" />
+                                    <TableColumn fx:id="tc_c_friday" prefWidth="-1.0" resizable="false" sortable="false" text="friday" />
+                                    <TableColumn fx:id="tc_c_saturday" prefWidth="-1.0" resizable="false" sortable="false" text="saturday" />
+                                 </columns>
+                              </TableView>
+                              <Label fx:id="l_month_year" alignment="CENTER" layoutY="8.0" prefWidth="200.0" text="month_year" textAlignment="CENTER" />
+                              <Button fx:id="b_prev_month_cal" layoutY="4.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="44.0" text="&lt;-" />
+                              <Button fx:id="b_prev_year" layoutY="4.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="44.0" text="&lt;&lt;=" />
+                              <Button fx:id="b_next_month_cal" layoutY="4.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="44.0" text="-&gt;" />
+                              <Button fx:id="b_next_year" layoutY="4.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="44.0" text="=&gt;&gt;" />
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="tpt_list_view" text="list_view">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0">
+                           <children>
+                              <TableView fx:id="tv_list_view" layoutX="72.0" layoutY="29.0" stylesheets="@css/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+                                 <columns>
+                                    <TableColumn fx:id="tc_l_id" editable="false" prefWidth="-1.0" text="appointment_id" />
+                                    <TableColumn fx:id="tc_l_title" editable="false" prefWidth="-1.0" text="title" />
+                                    <TableColumn fx:id="tc_l_description" editable="false" prefWidth="-1.0" text="description" />
+                                    <TableColumn fx:id="tc_l_location" editable="false" prefWidth="-1.0" text="location" />
+                                    <TableColumn fx:id="tc_l_contact" editable="false" prefWidth="-1.0" text="contact" />
+                                    <TableColumn fx:id="tc_l_type" editable="false" prefWidth="-1.0" text="type" />
+                                    <TableColumn fx:id="tc_l_start_date_time" editable="false" prefWidth="-1.0" sortType="DESCENDING" text="start_date_time" />
+                                    <TableColumn fx:id="tc_l_end_date_time" editable="false" prefWidth="-1.0" sortType="DESCENDING" text="end_date_time" />
+                                    <TableColumn fx:id="tc_l_customer_id" editable="false" prefWidth="-1.0" text="customer_id" />
+                                    <TableColumn fx:id="tc_l_user_id" editable="false" prefWidth="-1.0" text="user_id" />
+                                 </columns>
+                              </TableView>
+                              <Label fx:id="l_list_date" alignment="CENTER" layoutY="8.0" prefWidth="200.0" text="sunday_date" textAlignment="CENTER" />
+                              <Button fx:id="b_prev_week_list" layoutY="4.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="44.0" text="&lt;-" />
+                              <Button fx:id="b_prev_month_list" layoutY="4.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="44.0" text="&lt;&lt;=" />
+                              <Button fx:id="b_next_week_list" layoutY="4.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="44.0" text="-&gt;" />
+                              <Button fx:id="b_next_month_list" layoutY="4.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="44.0" text="=&gt;&gt;" />
+                              <RadioButton fx:id="rb_week" layoutY="10.0" mnemonicParsing="false">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="list_range" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="rb_month" layoutY="10.0" mnemonicParsing="false" selected="true" toggleGroup="$list_range" />
+                              <Label fx:id="l_month_or_week" text="month_week">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+        <AnchorPane fx:id="ap_appointments" prefHeight="484.0" prefWidth="164.0" SplitPane.resizableWithParent="false">
+               <children>
+                  <Label fx:id="l_appointments" layoutX="10.0" layoutY="10.0" text="appointments">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="b_new_appointment" mnemonicParsing="false" text="new_appointment" />
+                  <Button fx:id="b_edit_appointment" mnemonicParsing="false" text="edit_appointment" visible="false" />
+                  <Button fx:id="b_cancel_appointment" mnemonicParsing="false" text="cancel_appointment" visible="false" />
+               </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+  </children>
+</VBox>

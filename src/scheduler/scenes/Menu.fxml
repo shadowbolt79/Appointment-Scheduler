@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ToggleGroup?>
+
+<MenuBar xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controllers.MenuController">
+   <menus>
+      <Menu fx:id="m_file" mnemonicParsing="false" text="file">
+         <items>
+            <MenuItem fx:id="mi_new_appointment" mnemonicParsing="false" text="new_appointment" visible="false" />
+            <MenuItem fx:id="mi_duplicate_appointment" mnemonicParsing="false" text="duplicate_appointment" visible="false" />
+            <MenuItem fx:id="mi_edit_appointment" mnemonicParsing="false" text="edit_appointment" visible="false" />
+            <MenuItem fx:id="mi_delete_appointment" mnemonicParsing="false" text="delete_appointment" visible="false" />
+            <Menu fx:id="m_reports" mnemonicParsing="false" text="reports" visible="false">
+              <items>
+                <MenuItem fx:id="mi_customers_by_month" mnemonicParsing="false" text="customers_by_month" />
+                  <MenuItem fx:id="mi_customers_by_country" mnemonicParsing="false" text="customers_by_country" />
+                  <MenuItem fx:id="mi_contact_schedule" mnemonicParsing="false" text="contact_schedule" />
+              </items>
+            </Menu>
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem fx:id="mi_preferences" mnemonicParsing="false" text="preferences" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem fx:id="mi_logout" mnemonicParsing="false" text="logout" visible="false" />
+            <MenuItem fx:id="mi_quit" mnemonicParsing="false" text="quit" />
+         </items>
+      </Menu>
+      <Menu fx:id="m_navigation" mnemonicParsing="false" text="navigation" visible="false">
+         <items>
+            <RadioMenuItem fx:id="rmi_calendar" mnemonicParsing="false" text="calendar">
+               <toggleGroup>
+                  <ToggleGroup fx:id="navigation" />
+               </toggleGroup>
+            </RadioMenuItem>
+            <RadioMenuItem fx:id="rmi_new_edit_appointment" mnemonicParsing="false" text="new_edit_appointment" toggleGroup="$navigation" />
+            <RadioMenuItem fx:id="rmi_new_edit_customer" mnemonicParsing="false" text="new_edit_customer" toggleGroup="$navigation" />
+            <RadioMenuItem fx:id="rmi_elsewhere" mnemonicParsing="false" selected="true" text="elsewhere" toggleGroup="$navigation" visible="false" />
+         </items>
+      </Menu>
+      <Menu fx:id="m_admin" mnemonicParsing="false" text="admin" visible="false">
+         <items>
+            <MenuItem fx:id="mi_new_user" mnemonicParsing="false" text="new_user" />
+            <MenuItem fx:id="mi_user_list" mnemonicParsing="false" text="user_list" />
+         </items>
+      </Menu>
+      <Menu fx:id="m_help" mnemonicParsing="false" text="help">
+         <items>
+            <MenuItem fx:id="mi_about" mnemonicParsing="false" text="about" />
+         </items>
+      </Menu>
+   </menus>
+</MenuBar>

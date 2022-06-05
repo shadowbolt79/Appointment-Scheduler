@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="ap_report_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controllers.ReportController">
+   <children>
+      <TableView fx:id="tv_report_table" prefHeight="259.0" prefWidth="555.0" />
+      <Button fx:id="b_close" mnemonicParsing="false" text="Button" />
+      <Label fx:id="l_filter" visible="false" />
+      <Button fx:id="b_filter_back" mnemonicParsing="false" text="&lt;-" visible="false" />
+      <Button fx:id="b_filter_next" mnemonicParsing="false" text="-&gt;" visible="false" />
+   </children>
+</AnchorPane>
